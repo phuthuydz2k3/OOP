@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Lab01/JavaBasics/JavaBasics.iml" filepath="$PROJECT_DIR$/Lab01/JavaBasics/JavaBasics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab02/Lab02.iml" filepath="$PROJECT_DIR$/Lab02/Lab02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/OOP.iml" filepath="$PROJECT_DIR$/.idea/OOP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab01/project6.3/project6.3.iml" filepath="$PROJECT_DIR$/Lab01/project6.3/project6.3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab01/project6.4/project6.4.iml" filepath="$PROJECT_DIR$/Lab01/project6.4/project6.4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab01/project6.5/project6.5.iml" filepath="$PROJECT_DIR$/Lab01/project6.5/project6.5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab01/project6.6/project6.6.iml" filepath="$PROJECT_DIR$/Lab01/project6.6/project6.6.iml" />
+    </modules>
+  </component>
+</project>
