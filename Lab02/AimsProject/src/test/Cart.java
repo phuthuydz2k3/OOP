@@ -23,6 +23,30 @@ public class Cart
         }
     }
 
+    public void addDigitalVideoDics(DigitalVideoDisc[] discs)
+    {
+        for (DigitalVideoDisc disc : discs)
+        {
+            if (qtyOrdered <= MAX_NUMBERS_ORDERED)
+            {
+                itemsOrdered[qtyOrdered++] = disc;
+            }
+        }
+    }
+
+    public void addDigitalVideoDics(DigitalVideoDisc disc1, DigitalVideoDisc disc2)
+    {
+        if (qtyOrdered <= MAX_NUMBERS_ORDERED)
+        {
+            itemsOrdered[qtyOrdered++] = disc1;
+        }
+
+        if (qtyOrdered <= MAX_NUMBERS_ORDERED)
+        {
+            itemsOrdered[qtyOrdered++] = disc2;
+        }
+    }
+
     public void removeDigitalVideoDisc(DigitalVideoDisc disc)
     {
         ArrayList<DigitalVideoDisc> arrls = new ArrayList<>(qtyOrdered);
