@@ -7,6 +7,10 @@ public class DigitalVideoDisc
     private String director;
     private int length;
     private float cost;
+    private int id;
+    private static int nbDigitalVideoDisc = 0;
+
+
 
     public DigitalVideoDisc()
     {
@@ -15,6 +19,7 @@ public class DigitalVideoDisc
         setDirector("");
         setLength(0);
         setCost((float) 0.0);
+        this.id = nbDigitalVideoDisc++;
     }
     public DigitalVideoDisc(String title)
     {
