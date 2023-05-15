@@ -26,26 +26,4 @@ public class Main
         anOrder.removeDigitalVideoDisc(dvd2);
         System.out.println("Total cost after remove dvd2 is: " + anOrder.totalCost());
     }
-
-    static class objectWrapper {
-        DigitalVideoDisc innerObject;
-        public objectWrapper(DigitalVideoDisc objInnner) {
-            this.innerObject = objInnner;
-        }
-    }
-
-    public static void swap(objectWrapper o1, objectWrapper o2)
-    {
-        DigitalVideoDisc temp;
-        temp = o1.innerObject;
-        o1.innerObject = o2.innerObject;
-        o2.innerObject = temp;
-    }
-
-    public static void changeTitle(DigitalVideoDisc dvd, String title)
-    {
-        String oldTitle = dvd.getTitle();
-        dvd.setTitle(title);
-        dvd = new DigitalVideoDisc(oldTitle);
-    }
 }
