@@ -11,6 +11,17 @@ public class DigitalVideoDisc
     private static int nbDigitalVideoDisc = 0;
 
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public static int getNbDigitalVideoDisc() {
+        return nbDigitalVideoDisc;
+    }
 
     public DigitalVideoDisc()
     {
@@ -19,7 +30,7 @@ public class DigitalVideoDisc
         setDirector("");
         setLength(0);
         setCost((float) 0.0);
-        this.id = nbDigitalVideoDisc++;
+        setId(nbDigitalVideoDisc++ + 1);
     }
     public DigitalVideoDisc(String title)
     {

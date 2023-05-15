@@ -20,10 +20,8 @@ public class Main
                 , "Roger Allers",18.99f);
         anOrder.addDigitalVideoDics(dvd3);
 
-        System.out.println("Total cost before remove dvd1 is: " + anOrder.totalCost());
-        anOrder.removeDigitalVideoDisc(dvd1);
-        System.out.println("Total cost after remove dvd1 is: " + anOrder.totalCost());
-        anOrder.removeDigitalVideoDisc(dvd2);
-        System.out.println("Total cost after remove dvd2 is: " + anOrder.totalCost());
+        anOrder.printOrders();
+        anOrder.searchByID();
+        anOrder.searchByTitle();
     }
 }
