@@ -44,6 +44,17 @@ public class DigitalVideoDisc extends Media implements Playable
         System.out.println("DVD length: " + this.getLength());
     }
 
+    @Override
+    public String toString()
+    {
+        return "{ \"Id\": \"" + this.getId() + "\" ,"
+                + "\"Title\": \"" + this.getTitle() + "\", "
+                + "\"Category\": \"" + this.getCategory() + "\", "
+                + "\"Director\": \"" + this.director + "\", "
+                + "\"Cost\": \"" + this.getCost() + "\", "
+                + "\"Length\": \"" + this.length + "\" }";
+    }
+
     public int getLength() {
         return length;
     }

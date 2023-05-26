@@ -14,6 +14,13 @@ public abstract class Media
         setCost(cost);
     }
 
+    @Override
+    public boolean equals(Object obj)
+    {
+        Media media = (Media) obj;
+        return this.title.equals(media.title);
+    }
+
     public static void main(String[] args)
     {
 
