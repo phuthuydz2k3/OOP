@@ -1,23 +1,12 @@
 package test;
 
-public class DigitalVideoDisc
+import test.hust.soict.dsai.aims.media.Media;
+
+public class DigitalVideoDisc extends Media
 {
-    private String title;
-    private String category;
     private String director;
     private int length;
-    private float cost;
-    private int id;
     private static int nbDigitalVideoDisc = 0;
-
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public static int getNbDigitalVideoDisc() {
         return nbDigitalVideoDisc;
@@ -25,6 +14,7 @@ public class DigitalVideoDisc
 
     public DigitalVideoDisc()
     {
+        super();
         setTitle("");
         setCategory("");
         setDirector("");
@@ -57,14 +47,6 @@ public class DigitalVideoDisc
         setLength(length);
     }
 
-    public float getCost() {
-        return cost;
-    }
-
-    public void setCost(float cost) {
-        this.cost = cost;
-    }
-
     public int getLength() {
         return length;
     }
@@ -73,13 +55,6 @@ public class DigitalVideoDisc
         this.length = length;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
 
     public String getDirector() {
         return director;
@@ -87,13 +62,5 @@ public class DigitalVideoDisc
 
     public void setDirector(String director) {
         this.director = director;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 }
