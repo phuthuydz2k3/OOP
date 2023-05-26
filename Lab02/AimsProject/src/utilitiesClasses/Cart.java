@@ -1,6 +1,6 @@
-package test;
+package utilitiesClasses;
 
-import test.hust.soict.dsai.aims.media.DigitalVideoDisc;
+import utilitiesClasses.hust.soict.dsai.aims.media.DigitalVideoDisc;
 
 import java.util.ArrayList;
 import java.util.Collections;

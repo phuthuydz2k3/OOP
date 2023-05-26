@@ -1,7 +1,7 @@
 package main;
 
-import test.DigitalVideoDisc;
-import test.Store;
+import utilitiesClasses.hust.soict.dsai.aims.media.DigitalVideoDisc;
+import utilitiesClasses.Store;
 
 public class StoreTest
 {

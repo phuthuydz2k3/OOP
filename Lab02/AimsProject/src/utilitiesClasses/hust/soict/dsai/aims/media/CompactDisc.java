@@ -1,4 +1,4 @@
-package test.hust.soict.dsai.aims.media;
+package utilitiesClasses.hust.soict.dsai.aims.media;
 
 import java.util.ArrayList;
 
