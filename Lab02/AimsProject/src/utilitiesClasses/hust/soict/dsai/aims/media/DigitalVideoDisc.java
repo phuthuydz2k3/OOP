@@ -1,26 +1,16 @@
-package test;
+package test.hust.soict.dsai.aims.media;
 
-import test.hust.soict.dsai.aims.media.Media;
-
-public class DigitalVideoDisc extends Media
+public class DigitalVideoDisc extends Media implements Playable
 {
     private String director;
     private int length;
     private static int nbDigitalVideoDisc = 0;
 
-    public static int getNbDigitalVideoDisc() {
-        return nbDigitalVideoDisc;
-    }
-
     public DigitalVideoDisc()
     {
-        super();
-        setTitle("");
-        setCategory("");
+        super(nbDigitalVideoDisc++ + 1, "", "", (float) 0.0);
         setDirector("");
         setLength(0);
-        setCost((float) 0.0);
-        setId(nbDigitalVideoDisc++ + 1);
     }
     public DigitalVideoDisc(String title)
     {
@@ -47,6 +37,13 @@ public class DigitalVideoDisc extends Media
         setLength(length);
     }
 
+    @Override
+    public void play()
+    {
+        System.out.println("Playing DVD: " + this.getTitle());
+        System.out.println("DVD length: " + this.getLength());
+    }
+
     public int getLength() {
         return length;
     }
@@ -62,5 +59,9 @@ public class DigitalVideoDisc extends Media
 
     public void setDirector(String director) {
         this.director = director;
+    }
+
+    public static int getNbDigitalVideoDisc() {
+        return nbDigitalVideoDisc;
     }
 }

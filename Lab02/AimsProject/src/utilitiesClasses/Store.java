@@ -1,5 +1,7 @@
 package test;
 
+import test.hust.soict.dsai.aims.media.DigitalVideoDisc;
+
 import java.util.*;
 
 public class Store
