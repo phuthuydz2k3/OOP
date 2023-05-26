@@ -1,11 +1,15 @@
 package utilitiesClasses.hust.soict.dsai.aims.media;
 
+import java.util.Comparator;
+
 public abstract class Media
 {
     private int id;
     private String title;
     private String category;
     private float cost;
+    public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorSortByTitle();
+    public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorSortByCost();
     public Media(int id, String title, String category, float cost)
     {
         setId(id);

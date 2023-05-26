@@ -5,6 +5,8 @@ import utilitiesClasses.hust.soict.dsai.aims.media.CompactDisc;
 import utilitiesClasses.hust.soict.dsai.aims.media.DigitalVideoDisc;
 import utilitiesClasses.hust.soict.dsai.aims.media.Media;
 import utilitiesClasses.hust.soict.dsai.aims.media.Track;
+
+import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -32,6 +34,21 @@ public class PolymorphismToString
         medias.add(cd);
         medias.add(book);
 
+        System.out.println("Print the list: ");
+        for (Media media : medias)
+        {
+            System.out.println(media.toString());
+        }
+
+        System.out.println("Print the list by library order");
+        Collections.sort(medias, Media.COMPARE_BY_TITLE_COST);
+        for (Media media : medias)
+        {
+            System.out.println(media.toString());
+        }
+
+        System.out.println("Print the list by cost order");
+        Collections.sort(medias, Media.COMPARE_BY_COST_TITLE);
         for (Media media : medias)
         {
             System.out.println(media.toString());
