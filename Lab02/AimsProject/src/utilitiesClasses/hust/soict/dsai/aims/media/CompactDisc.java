@@ -34,9 +34,12 @@ public class CompactDisc extends Disc implements Playable
                 + "\"Artist\": \"" + this.artist + "\", ";
 
         StringBuilder stringBuilder = new StringBuilder(initialString);
-        for (Track track : tracks)
+        if (tracks != null)
         {
-            stringBuilder.append("\"" + track.getTitle() + "\", ");
+            for (Track track : tracks)
+            {
+                stringBuilder.append("\"" + track.getTitle() + "\", ");
+            }
         }
         stringBuilder.append(" }");
 

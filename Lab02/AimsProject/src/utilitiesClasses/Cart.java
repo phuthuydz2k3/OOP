@@ -21,6 +21,8 @@ public class Cart
         {
             itemsOrdered.add(newMedia);
         }
+
+        printCart();
     }
 
     public void removeMedia(Media media)
@@ -29,6 +31,8 @@ public class Cart
         {
             itemsOrdered.remove(media);
         }
+
+        printCart();
     }
 
     public float totalCost()
@@ -41,5 +45,14 @@ public class Cart
         }
 
         return total;
+    }
+
+    private void printCart()
+    {
+        System.out.println("Cart:\n");
+        for (Media item : itemsOrdered)
+        {
+            System.out.println(item);
+        }
     }
 }
