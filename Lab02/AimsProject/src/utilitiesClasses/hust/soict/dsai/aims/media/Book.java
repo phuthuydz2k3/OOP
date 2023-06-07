@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 public class Book extends Media
 {
-    private List<String> authors = new ArrayList<String>();
-    public Book(int id, String title, String category, float cost)
+    private List<String> authors = new ArrayList<>();
+    public Book(String title, String category, float cost)
     {
-        super(id, title, category, cost);
+        super(title, category, cost);
     }
 
     @Override

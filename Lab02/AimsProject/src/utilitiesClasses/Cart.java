@@ -47,12 +47,22 @@ public class Cart
         return total;
     }
 
-    private void printCart()
+    public void printCart()
     {
         System.out.println("Cart:\n");
         for (Media item : itemsOrdered)
         {
             System.out.println(item);
         }
+    }
+
+    public ArrayList<Media> getItemsOrdered()
+    {
+        return this.itemsOrdered;
+    }
+
+    public void setItemsOrderedEmpty()
+    {
+        this.itemsOrdered = new ArrayList<Media>();
     }
 }

@@ -4,6 +4,7 @@ import utilitiesClasses.Cart;
 import utilitiesClasses.Store;
 import utilitiesClasses.hust.soict.dsai.aims.media.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Aims
@@ -20,10 +21,10 @@ public class Aims
         ArrayList<Track> tracks = new ArrayList<>();
         tracks.add(track);
 
-        CompactDisc cd = new CompactDisc(1, "Java Core I", "Coding", (float) 30.00, 2
+        CompactDisc cd = new CompactDisc("Java Core I", "Coding", (float) 30.00, 2
                 , "None", "Tran Anh", tracks);
 
-        Book book = new Book(1, "C Programming", "Coding", (float) 20.00);
+        Book book = new Book("C Programming", "Coding", (float) 20.00);
         book.addAuthor("Tran Anh");
         book.addAuthor("Do Hong Hai");
         book.addAuthor("Mai Duc An");
@@ -31,6 +32,7 @@ public class Aims
         store.addMedia(dvd);
         store.addMedia(cd);
         store.addMedia(book);
+        store.setMediasId();
 
         runAIMS();
     }
@@ -96,6 +98,10 @@ public class Aims
             playAMedia();
             runStore();
         }
+        else if (option == 4)
+        {
+            runAIMS();
+        }
         else if (option == 0)
         {
             runAIMS();
@@ -117,10 +123,12 @@ public class Aims
         if (option == 1)
         {
             addMediaToStore();
+            store.setMediasId();
         }
         else if (option == 2)
         {
             removeMedia();
+            store.setMediasId();
             updateStore();
         }
         else if (option == 0)
@@ -134,6 +142,7 @@ public class Aims
         int place = 6;
         int option;
 
+        cart.printCart();
         cartMenu();
         option = scannerOption(place);
         while (option < 0 || option >= place)
@@ -170,17 +179,97 @@ public class Aims
 
     private static void filterCartMedias()
     {
+        int place = 3;
+        System.out.print("1.By Id 2.By Title 0.Back\nEnter filter option: ");
+        int option = scannerOption(place);
 
+        if (option == 1)
+        {
+            filterById();
+            runCartMenu();
+        }
+        else if (option == 2)
+        {
+            filterByTitle();
+            runCartMenu();
+        }
+        else if (option == 0)
+        {
+            runCartMenu();
+        }
     }
 
     private static void sortCartMedias()
     {
+        int place = 3;
+        System.out.print("1.By Id 2.By Title 0.Back\nEnter sort option: ");
+        int option = scannerOption(place);
 
+        if (option == 1)
+        {
+            sortCartId();
+            runCartMenu();
+        }
+        else if (option == 2)
+        {
+            sortCartTitle();
+            runCartMenu();
+        }
+        else if (option == 0)
+        {
+            runCartMenu();
+        }
     }
 
     private static void placeOrder()
     {
+        System.out.println("Successfully order");
+        cart.setItemsOrderedEmpty();
+        runCartMenu();
+    }
 
+    private static void sortCartId()
+    {
+        Collections.sort(cart.getItemsOrdered(), Media.COMPARE_BY_ID);
+    }
+
+    private static void sortCartTitle()
+    {
+        Collections.sort(cart.getItemsOrdered(), Media.COMPARE_BY_COST_TITLE);
+    }
+
+    private static void filterById()
+    {
+        System.out.print("Enter id: ");
+        int id = scannerInt();
+
+        Media media = store.searchMediaById(id);
+
+        if (media != null)
+        {
+            System.out.println(media.toString());
+        }
+        else
+        {
+            System.out.println("Not found!");
+        }
+    }
+
+    private static void filterByTitle()
+    {
+        System.out.print("Enter title: ");
+        String title = scannerLine();
+
+        Media media = store.searchForMedia(title);
+
+        if (media != null)
+        {
+            System.out.println(media.toString());
+        }
+        else
+        {
+            System.out.println("Not found!");
+        }
     }
 
     private static void cartMenu()
@@ -199,16 +288,8 @@ public class Aims
 
     private static void addMediaToStore()
     {
-        Scanner in = new Scanner(System.in);
-        String title;
-
-        System.out.print("Enter the title: ");
-        title = in.nextLine().trim(); // Trim leading/trailing whitespaces
-
-        while (title.isEmpty()) {
-            System.out.print("Enter the title: ");
-            title = in.nextLine().trim(); // Trim leading/trailing whitespaces
-        }
+        System.out.print("Enter title: ");
+        String title = scannerLine();
 
         Media media = store.searchForMedia(title);
 
@@ -221,20 +302,17 @@ public class Aims
             System.out.print("What dou want to add? 1. aBook 2. aDVD 3. CD 0. Back\nEnter 0-1-2-3: ");
             int option = scannerOption(4);
 
-            System.out.print("Enter id: ");
-            int id = in.nextInt();
-            in.nextLine();
             System.out.print("Enter category: ");
-            String category = in.nextLine();
+            String category = scannerLine();
             System.out.print("Enter float: ");
-            float cost = in.nextFloat();
+            float cost = scannerFloat();
             Media newMedia = null;
 
             if (option != 0)
             {
                 if (option == 1)
                 {
-                    newMedia = new Book(id, title, category, cost);
+                    newMedia = new Book(title, category, cost);
                 }
                 else if (option == 2)
                 {
@@ -242,7 +320,7 @@ public class Aims
                 }
                 else if (option == 3)
                 {
-                    newMedia = new CompactDisc(id, title, category, cost, 2, "", "", null);
+                    newMedia = new CompactDisc(title, category, cost, 2, "", "", null);
                 }
 
                 store.addMedia(newMedia);
@@ -414,24 +492,60 @@ public class Aims
         return option;
     }
 
-    private static int scannerOption()
+    private static int scannerInt()
     {
         Scanner scanner = new Scanner(System.in);
-        int option = 0;
+        int number = 0;
         boolean validInput = false;
 
         while (!validInput)
         {
             if (scanner.hasNextInt())
             {
-                option = scanner.nextInt();
+                number = scanner.nextInt();
                 validInput = true;
             } else {
-                System.out.print("Invalid input. Please enter an integer : ");
+                System.out.print("Invalid input. Please enter an integer: ");
                 scanner.next();
             }
         }
 
-        return option;
+        return number;
+    }
+
+    private static String scannerLine()
+    {
+        Scanner in = new Scanner(System.in);
+        String line;
+
+        line = in.nextLine().trim(); // Trim leading/trailing whitespaces
+
+        while (line.isEmpty()) {
+            System.out.print("Enter again: ");
+            line = in.nextLine().trim(); // Trim leading/trailing whitespaces
+        }
+
+        return line;
+    }
+
+    private static float scannerFloat()
+    {
+        Scanner scanner = new Scanner(System.in);
+        float number = (float) 0.0;
+        boolean validInput = false;
+
+        while (!validInput)
+        {
+            if (scanner.hasNextFloat())
+            {
+                number = scanner.nextFloat();
+                validInput = true;
+            } else {
+                System.out.print("Invalid input! Please enter a valid float: ");
+                scanner.next();
+            }
+        }
+
+        return number;
     }
 }

@@ -4,11 +4,10 @@ public class DigitalVideoDisc extends Media implements Playable
 {
     private String director;
     private int length;
-    private static int nbDigitalVideoDisc = 0;
 
     public DigitalVideoDisc()
     {
-        super(nbDigitalVideoDisc++ + 1, "", "", (float) 0.0);
+        super("", "", (float) 0.0);
         setDirector("");
         setLength(0);
     }
@@ -63,16 +62,7 @@ public class DigitalVideoDisc extends Media implements Playable
         this.length = length;
     }
 
-
-    public String getDirector() {
-        return director;
-    }
-
     public void setDirector(String director) {
         this.director = director;
-    }
-
-    public static int getNbDigitalVideoDisc() {
-        return nbDigitalVideoDisc;
     }
 }
