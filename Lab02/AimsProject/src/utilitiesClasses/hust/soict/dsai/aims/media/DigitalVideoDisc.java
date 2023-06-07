@@ -1,36 +1,16 @@
-package test;
+package utilitiesClasses.hust.soict.dsai.aims.media;
 
-public class DigitalVideoDisc
+public class DigitalVideoDisc extends Media implements Playable
 {
-    private String title;
-    private String category;
     private String director;
     private int length;
-    private float cost;
-    private int id;
     private static int nbDigitalVideoDisc = 0;
-
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public static int getNbDigitalVideoDisc() {
-        return nbDigitalVideoDisc;
-    }
 
     public DigitalVideoDisc()
     {
-        setTitle("");
-        setCategory("");
+        super(nbDigitalVideoDisc++ + 1, "", "", (float) 0.0);
         setDirector("");
         setLength(0);
-        setCost((float) 0.0);
-        setId(nbDigitalVideoDisc++ + 1);
     }
     public DigitalVideoDisc(String title)
     {
@@ -57,12 +37,22 @@ public class DigitalVideoDisc
         setLength(length);
     }
 
-    public float getCost() {
-        return cost;
+    @Override
+    public void play()
+    {
+        System.out.println("Playing DVD: " + this.getTitle());
+        System.out.println("DVD length: " + this.getLength());
     }
 
-    public void setCost(float cost) {
-        this.cost = cost;
+    @Override
+    public String toString()
+    {
+        return "{ \"Id\": \"" + this.getId() + "\" ,"
+                + "\"Title\": \"" + this.getTitle() + "\", "
+                + "\"Category\": \"" + this.getCategory() + "\", "
+                + "\"Director\": \"" + this.director + "\", "
+                + "\"Cost\": \"" + this.getCost() + "\", "
+                + "\"Length\": \"" + this.length + "\" }";
     }
 
     public int getLength() {
@@ -73,13 +63,6 @@ public class DigitalVideoDisc
         this.length = length;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
 
     public String getDirector() {
         return director;
@@ -89,11 +72,7 @@ public class DigitalVideoDisc
         this.director = director;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
+    public static int getNbDigitalVideoDisc() {
+        return nbDigitalVideoDisc;
     }
 }

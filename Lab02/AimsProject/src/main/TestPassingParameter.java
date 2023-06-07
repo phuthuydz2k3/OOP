@@ -1,6 +1,6 @@
 package main;
 
-import test.*;
+import utilitiesClasses.hust.soict.dsai.aims.media.DigitalVideoDisc;
 
 public class TestPassingParameter
 {
