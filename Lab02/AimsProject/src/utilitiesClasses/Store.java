@@ -74,6 +74,30 @@ public class Store
         return null;
     }
 
+    public Media searchMediaById(int id)
+    {
+        for (Media media : itemsInStore)
+        {
+            if (id == media.getId())
+            {
+                return media;
+            }
+        }
+
+        return null;
+    }
+
+    public void setMediasId()
+    {
+        for (Media media : itemsInStore)
+        {
+            if (media.getId() == 0)
+            {
+                media.setId(itemsInStore.indexOf(media) + 1);
+            }
+        }
+    }
+
     private boolean isValidString(String inputLine)
     {
         return inputLine != null && !inputLine.isEmpty();

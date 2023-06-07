@@ -22,10 +22,10 @@ public class PolymorphismToString
         ArrayList<Track> tracks = new ArrayList<>();
         tracks.add(track);
 
-        CompactDisc cd = new CompactDisc(1, "Java Core I", "Coding", (float) 30.00, 2
+        CompactDisc cd = new CompactDisc("Java Core I", "Coding", (float) 30.00, 2
                 , "None", "Tran Anh", tracks);
 
-        Book book = new Book(1, "C Programming", "Coding", (float) 20.00);
+        Book book = new Book("C Programming", "Coding", (float) 20.00);
         book.addAuthor("Tran Anh");
         book.addAuthor("Do Hong Hai");
         book.addAuthor("Mai Duc An");
