@@ -1,0 +1,59 @@
+9. Constructors of whole classes and parent classes
+- Which classes are aggregates of other classes? Checking all constructors of whole classes if they 
+initialize for their parts?
+	answer: CompactDisc, Cart, Store.
+10. Unique item in a list
+When overriding the equals() method of the Object class, you will have to cast the Object 
+parameter obj to the type of Object that you are dealing with. For example, in the Media class, you 
+must cast the Object obj to a Media, and then check the equality of the two objects’ attributes as the 
+above requirements (i.e. title for Media; title and length for Track). If the passing object is 
+not an instance of Media, what happens?
+	answer: i use this code: 
+	"if (!(obj instanceof Media))
+        	{
+            	return false;
+        	}"
+ 	=> so in my case it will return false;
+12. Sort media in the cart
+- What class should implement the Comparable interface?
+	answer: Media
+- In those classes, how should you implement the compareTo()method be to reflect the ordering that we want?
+	answer: i will show an example of how i will do it (in the case of compare cost):
+    @Override
+    public int compareTo(Media other)
+    {
+       	int costComparion = Float.compare(other.getCost(), this.getCost());
+
+        if (costComparion != 0)
+        {
+            return costComparion;
+        }
+        else
+        {
+            return media1.getTitle().compareTo(media2.getTitle());
+        }
+    }
+
+- Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable interface approach?
+	answer: yes we can
+- Suppose the DVDs has a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this?
+	answer: i will give an example:
+	@Override
+    public int compareTo(Media other)
+    {
+	int titleComparion = this.getTitle().comapreTo(other.getTitle());
+	int lengthComparion = Integer.compare(other.getLength(), this.getLength());
+	int costComparion = Float.compare(other.getCost(), this.getCost());
+
+        if (titleComparion != 0)
+        {
+            return costComparion;
+        }
+        else if (lengtComparion != 0)
+	{
+	    return lengthComparion;
+	else
+        {
+            return costComparion;
+        }
+    }
