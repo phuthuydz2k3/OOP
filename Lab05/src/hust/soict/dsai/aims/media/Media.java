@@ -22,13 +22,23 @@ public abstract class Media
     @Override
     public boolean equals(Object obj)
     {
-        if (!(obj instanceof Media))
+        try
         {
-            return false;
-        }
+            if (!(obj instanceof Media))
+            {
+                return false;
+            }
 
-        Media media = (Media) obj;
-        return this.title.equals(media.title);
+            Media media = (Media) obj;
+            return this.title.equals(media.title);
+        } catch (NullPointerException e)
+        {
+            throw e;
+        }
+        catch (ClassCastException e)
+        {
+            throw e;
+        }
     }
 
     public static void main(String[] args)

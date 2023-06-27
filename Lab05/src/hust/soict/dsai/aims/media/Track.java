@@ -1,5 +1,7 @@
 package hust.soict.dsai.aims.media;
 
+import hust.soict.globalict.aims.exception.TrackException;
+
 public class Track implements Playable
 {
     private String title;
@@ -11,7 +13,7 @@ public class Track implements Playable
         setLength(length);
     }
 
-    public void play()
+    public void play() throws TrackException
     {
         System.out.println("Playing DVD: " + this.getTitle());
         System.out.println("DVD length: " + this.getLength());
