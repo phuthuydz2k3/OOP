@@ -1,6 +1,7 @@
 package hust.soict.globalict.aims.screen;
 
 import hust.soict.Cart;
+import hust.soict.Store;
 import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
@@ -13,7 +14,7 @@ import javax.swing.*;
 public class CartScreen extends JFrame {
     private Cart cart;
 
-    public CartScreen(Cart cart) {
+    public CartScreen(Cart cart, Store store) {
         super();
 
         this.cart = cart;
@@ -30,7 +31,7 @@ public class CartScreen extends JFrame {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(
                         "hust/soict/globalict/aims/screen/cart.fxml"));
-                CartScreenController controller = new CartScreenController(cart);
+                CartScreenController controller = new CartScreenController(cart, store);
                 loader.setController(controller);
                 Parent root = loader.load();
                 Scene scene = new Scene(root);
@@ -56,7 +57,7 @@ public class CartScreen extends JFrame {
 
 
         SwingUtilities.invokeLater(() -> {
-            CartScreen cartScreen = new CartScreen(anOrder);
+            CartScreen cartScreen = new CartScreen(anOrder, new Store());
         });
     }
 }

@@ -1,6 +1,7 @@
 package hust.soict.globalict.aims.screen;
 
 import hust.soict.Cart;
+import hust.soict.Store;
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.media.Playable;
 import javafx.beans.value.ChangeListener;
@@ -11,8 +12,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,6 +23,7 @@ import java.awt.*;
 public class CartScreenController {
 
     private Cart cart;
+    private Store store;
 
     @FXML
     private TableView<Media> tblMedia;
@@ -43,9 +47,13 @@ public class CartScreenController {
     private Button btnPlaceOrder;
     @FXML
     private Label totalValue;
+    @FXML
+    private MenuItem btnViewStore;
 
-    public CartScreenController(Cart cart) {
+    public CartScreenController(Cart cart, Store store) {
+
         this.cart = cart;
+        this.store = store;
     }
 
     @FXML
@@ -125,6 +133,18 @@ public class CartScreenController {
 
         float totalCost = cart.totalCost();
         totalValue.setText(totalCost + "$");
+
+        btnViewStore.setOnAction(e -> {
+            MenuItem menuItem = (MenuItem) e.getSource();
+            javafx.scene.control.MenuButton parentMenuButton = (javafx.scene.control.MenuButton) menuItem.getParentPopup().getOwnerNode();
+            javafx.scene.Scene currentScene = parentMenuButton.getScene();
+            javafx.stage.Window currentWindow = currentScene.getWindow();
+            currentWindow.hide();
+            new StoreScreen(store, cart);
+        });
+
+
+
     }
 
     void updateButtonBar(Media media)

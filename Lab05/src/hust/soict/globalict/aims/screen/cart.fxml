@@ -25,7 +25,7 @@
                <menus>
                   <Menu mnemonicParsing="false" text="Options">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="View Store" />
+                        <MenuItem fx:id="btnViewStore" mnemonicParsing="false" text="View Store" />
                         <MenuItem mnemonicParsing="false" text="View Cart" />
                      </items>
                   </Menu>

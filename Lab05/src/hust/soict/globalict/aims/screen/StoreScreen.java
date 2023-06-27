@@ -144,7 +144,7 @@ public class StoreScreen extends JFrame
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                CartScreen cartScreen = new CartScreen(cart);
+                CartScreen cartScreen = new CartScreen(cart, store);
             }
         });
         menu.add(viewCartBtn);
@@ -167,7 +167,7 @@ public class StoreScreen extends JFrame
 
         JButton cartBtn = new JButton("View cart");
         cartBtn.addActionListener(e -> {
-            CartScreen cartScreen = new CartScreen(cart);
+            CartScreen cartScreen = new CartScreen(cart, store);
         });
         cartBtn.setPreferredSize(new Dimension(100, 50));
         cartBtn.setMaximumSize(new Dimension(100, 50));
