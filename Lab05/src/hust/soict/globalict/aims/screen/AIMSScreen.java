@@ -16,7 +16,17 @@ public class AIMSScreen
         Store store = new Store();
         Cart cart = new Cart();
 
-        DigitalVideoDisc dvd = new DigitalVideoDisc("The Lion King", "Animation"
+        DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King1", "Animation"
+                , "Roger Allers", 87, 19.95f);
+        DigitalVideoDisc dvd2 = new DigitalVideoDisc("The Lion King2", "Animation"
+                , "Roger Allers", 87, 19.95f);
+        DigitalVideoDisc dvd3 = new DigitalVideoDisc("The Lion King3", "Animation"
+                , "Roger Allers", 87, 19.95f);
+        DigitalVideoDisc dvd4 = new DigitalVideoDisc("The Lion King4", "Animation"
+                , "Roger Allers", 87, 19.95f);
+        DigitalVideoDisc dvd5 = new DigitalVideoDisc("The Lion King5", "Animation"
+                , "Roger Allers", 87, 19.95f);
+        DigitalVideoDisc dvd6 = new DigitalVideoDisc("The Lion King6", "Animation"
                 , "Roger Allers", 87, 19.95f);
 
         Track track = new Track("Haha", 3);
@@ -31,7 +41,12 @@ public class AIMSScreen
         book.addAuthor("Do Hong Hai");
         book.addAuthor("Mai Duc An");
 
-        store.addMedia(dvd);
+        store.addMedia(dvd1);
+        store.addMedia(dvd2);
+        store.addMedia(dvd3);
+        store.addMedia(dvd4);
+        store.addMedia(dvd5);
+        store.addMedia(dvd6);
         store.addMedia(cd);
         store.addMedia(book);
         store.setMediasId();
